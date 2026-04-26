@@ -1,0 +1,2 @@
+# Quadruped-navigation
+Simulazione di un robot quadrupede in un ambiente di simulazione Gazebo. implementare il controllo dinamico (FK e IK) con sensori. Successivamente implementare navigation e quant’altro. Future integrazioni: Computer Vision e Reinforcement Learning.
