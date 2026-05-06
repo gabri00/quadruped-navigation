@@ -3,41 +3,21 @@
 # ==============================================================================
 
 services:
-  ros-desktop:
+  quadruped_navigation:
     build:
       context: .
       dockerfile: Dockerfile
-      # linux/amd64  → Linux / Windows (Intel/AMD)
-      # linux/arm64  → Mac Apple Silicon (M1/M2/M3)
-      platform: linux/amd64   # ← CAMBIA in linux/arm64 se sei su Mac ARM
 
-    image: ros-jazzy-desktop:latest
-    container_name: ros_jazzy_desktop
-
-    environment:
-      - DISPLAY=${DISPLAY:-:0}
-      - QT_X11_NO_MITSHM=1
-      - LIBGL_ALWAYS_SOFTWARE=0
-      - ROS_DOMAIN_ID=0
-      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+    # linux/amd64  → Linux / Windows (Intel/AMD)
+    # linux/arm64  → Mac Apple Silicon (M1/M2/M3)
+    platform: linux/amd64
+    image: quadruped_image_jazzy
+    container_name: quadruped_navigation
 
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      # Monta l'intera repo come workspace ROS nel container.
-      # "." = la cartella dove si trova questo docker-compose.yml (la root della repo).
-      # Tutto quello che modifichi sull'host è visibile in tempo reale nel container.
-      - .:/home/rosuser/quadruped-navigation:rw
-      - ${XAUTHORITY:-~/.Xauthority}:/home/rosuser/.Xauthority:ro
+      - .:/home/ubuntu/quadruped-navigation:rw
+      - ${XAUTHORITY:-~/.Xauthority}:/home/ubuntu/.Xauthority:ro
 
     network_mode: host
-    stdin_open: true
     tty: true
-
-    deploy:
-      resources:
-        limits:
-          memory: 4G
-
-# ==============================================================================
-#  ISTRUZIONI PER OS  (identiche a Humble — vedi README)
-# ==============================================================================
