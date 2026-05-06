@@ -16,6 +16,14 @@ git add .gitmodules modules/
 
 For interoperability and efficiency the project has been developed in a containerized environment, starting from the [ROS official images](https://hub.docker.com/_/ros/), we seleted the ROS2 Jazzy version.
 
-Pull the image: `docker pull ros:jazzy-ros-base`
+Pull the image: cdocker pull ros:jazzy-ros-base`
 Create a container: `docker run --name <container_name> <image_name>`
 Go into the container: `docker exec -it <container_name> bash`
+
+### Usefull Commands
+```bash
+docker compose up --build   # To build the image and run the container
+docker compose up           # To run the container
+docker compose uo -d        # To run the container in detached mode (without logs)
+docker exec -it <CONTAINER_NAME> bash   # To go insede the container (CONTAINER_NAME=quadrped_navigation)
+```
