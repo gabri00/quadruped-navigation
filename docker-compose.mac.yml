@@ -1,0 +1,21 @@
+services:
+  quadruped_navigation:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    platform: linux/arm64
+    image: quadruped_jazzy
+    container_name: quadruped_navigation
+    hostname: quadruped_navigation
+
+    # restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+    environment:
+      - ROS_DISTRO=jazzy
+      - DISPLAY=host.docker.internal:0
+
+    volumes:
+      - .:/root/ros2_ws/quadruped-navigation:rw

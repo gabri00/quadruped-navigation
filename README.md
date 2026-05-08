@@ -20,8 +20,7 @@ Pull the image: cdocker pull ros:jazzy-ros-base`
 
 ### Usefull Commands
 ```bash
-docker run --name <container_name> <image_name>     # Create a container
-docker compose up --build   # To build the image and run the container
+docker compose -f docker-compose.<platform>.yml up --build # To build the image and run the container
 docker compose up           # To run the container
 docker compose uo -d        # To run the container in detached mode (without logs)
 docker exec -it <CONTAINER_NAME> bash   # To go insede the container (CONTAINER_NAME=quadrped_navigation)
