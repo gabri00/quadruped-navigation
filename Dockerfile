@@ -61,16 +61,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-jazzy-ros2-controllers \
     && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /root/ros2_ws/src
-WORKDIR /root/ros2_ws
-
 # ── Shell setup ───────────────────────────────────────────────
 RUN echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc && \
     echo "export ROS_DOMAIN_ID=0" >> ~/.bashrc && \
     echo "export RMW_IMPLEMENTATION=rmw_fastrtps_cpp" >> ~/.bashrc
 
 CMD ["/bin/bash"]
-
 
 ### Old Dockerfile ###
 

@@ -18,4 +18,4 @@ services:
       - DISPLAY=host.docker.internal:0
 
     volumes:
-      - .:/root/ros2_ws/quadruped-navigation:rw
+      - .:/home/ubuntu/quadruped-navigation:rw

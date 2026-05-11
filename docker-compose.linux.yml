@@ -19,7 +19,7 @@ services:
       - DISPLAY=${DISPLAY:-:0}
 
     volumes:
-      - .:/root/ros2_ws/quadruped-navigation:rw
+      - .:/home/ubuntu/quadruped-navigation:rw
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-~/.Xauthority}:/home/ubuntu/.Xauthority:ro
       - /dev/dri:/dev/dri
