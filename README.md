@@ -22,7 +22,7 @@ Pull the image: cdocker pull ros:jazzy-ros-base`
 ```bash
 docker compose -f docker-compose.<platform>.yml up --build # To build the image and run the container
 docker compose up           # To run the container
-docker compose uo -d        # To run the container in detached mode (without logs)
+docker compose up -d        # To run the container in detached mode (without logs)
 docker exec -it <CONTAINER_NAME> bash   # To go insede the container (CONTAINER_NAME=quadrped_navigation)
 ```
 ### Architecture Notes
