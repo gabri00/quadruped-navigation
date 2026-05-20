@@ -25,6 +25,12 @@ docker compose up           # To run the container
 docker compose up -d        # To run the container in detached mode (without logs)
 docker exec -it <CONTAINER_NAME> bash   # To go insede the container (CONTAINER_NAME=quadrped_navigation)
 ```
+
+To allow display application:
+```bash
+echo 'xhost +local:docker > /dev/null' >> ~/.bashrc
+```
+
 ### Architecture Notes
 > [!IMPORTANT]
 > Remember to set the correct architecture inside the Dockerfile. 
